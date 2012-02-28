@@ -4,9 +4,11 @@
 		<script>
 window.addEventListener("load", function(){
 	var domains = widget.preferences.whiteDomains.split(",");
+	for (var i in domains)
+		domains[i] = domains[i].replace(/^\s*|\s*$/g, '');
 	opera.extension.onconnect = function(event){
 	 	event.source.postMessage(domains);
-		opera.postError("sent message to injected script:" + domains);
+		//opera.postError("sent message to injected script:" + domains);
 	}
 }, false);
 

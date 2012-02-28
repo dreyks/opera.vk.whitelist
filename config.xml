@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="" version="1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" id="" version="1.0" >
 
-	<name xml:lang="en">VK.whitelist</name>
+	<name xml:lang="en">VKontakte whitelist</name>
+	<name xml:lang="ru">Белый список Вконтакте</name>
 
 	<author>Dreyk</author>
-	<description xml:lang="en">Allows whitelisted domains to be loaded directly w/o a user-confirmation</description>
+	<description xml:lang="en">Allows urls from whitelisted external domains to be loaded directly w/o a user-confirmation</description>
+	<description xml:lang="ru">Автоматически перенаправляет на внешние сайты, внесенные в белый список, пропуская предупреждения Вконтакте</description>
 	<icon src="img/icon.16x16.png" />
 	<icon src="img/icon.png" />
 	
