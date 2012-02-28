@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="" version="1.0">
+
+	<name xml:lang="en">VK.whitelist</name>
+
+	<author>Dreyk</author>
+	<description xml:lang="en">Allows whitelisted domains to be loaded directly w/o a user-confirmation</description>
+	<icon src="img/icon.16x16.png" />
+	<icon src="img/icon.png" />
+	
+	<preference name="whiteDomains" value="habrahabr.ru"/>
+
+</widget>

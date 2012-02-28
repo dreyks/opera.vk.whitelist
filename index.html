@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<script>
+window.addEventListener("load", function(){
+	var domains = widget.preferences.whiteDomains.split(",");
+	opera.extension.onconnect = function(event){
+	 	event.source.postMessage(domains);
+		opera.postError("sent message to injected script:" + domains);
+	}
+}, false);
+
+		</script>
+	</head>
+  <body>
+  </body>
+</html>

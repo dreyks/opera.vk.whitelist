@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>VK.whitelist options</title>
+	<script>
+window.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('optionsForm').domains.value = widget.preferences.whiteDomains || ''; 
+}, false);
+
+function save(form)
+{
+	widget.preferences.whiteDomains = form.domains.value;
+	return false;
+}
+	</script>
+	</head>
+	<body>
+		<div id="wrapper"> 
+			<h1>VK.whitelist options</h1> 
+			<form action="" id="optionsForm">
+				<label for="domains">Enter white-list domains (comma-separated):</label>
+				<input name="domains"/>
+				<input type="button" value="Save" onclick="save(this.form)"/>
+			 </form> 
+		</div>
+	</body>
+</html>
