@@ -1,37 +1,37 @@
-if (-1 != window.location.href.indexOf('vk.com/away.php'))
+// ==UserScript==
+// @include http://vk.com/away.php*
+// ==/UserScript==
+
+var url = window.location.search.substr(1) || '';
+var redirUrl = '';
+url = url.split('&');
+for (var i in url)
 {
-	var url = window.location.search.substr(1) || '';
-	var redirUrl = '';
-	url = url.split('&');
-	for (var i in url)
+	//console.log(url[i]);
+	var tmp = url[i].split('=');
+	if ('to' == tmp[0])
 	{
-		//console.log(url[i]);
-		var tmp = url[i].split('=');
-		if ('to' == tmp[0])
-		{
-			redirUrl = unescape(tmp[1]);
-			break;
-		}
+		redirUrl = unescape(tmp[1]);
+		break;
 	}
-	if (redirUrl)
-	{
-		opera.extension.onmessage = function(event){
-			var domains = event.data;
-			//console.log(domains);
-			//opera.postError("recieved " + domains);
-			for (var i in domains)
+}
+if (redirUrl)
+{
+	opera.extension.onmessage = function(event){
+		var domains = event.data;
+		opera.postError("recieved " + domains);
+		for (var i in domains)
+		{
+			var domain = domains[i];
+			//opera.postError(redirUrl + ":" + domain);
+			if ((domain) && (-1 != redirUrl.indexOf(domain)))
 			{
-				var domain = domains[i];
-				//console.log(redirUrl + ":" + domain);
-				if ((domain) && (-1 != redirUrl.indexOf(domain)))
-				{
-					//console.log('redirected to ' + redirUrl);
-					window.location = redirUrl;
-					return true;
-				}
+				opera.postError('redirected to ' + redirUrl);
+				window.location = redirUrl;
+				return true;
 			}
-			//console.log('white-list miss');
-			return false;
 		}
+		opera.postError('white-list miss');
+		return false;
 	}
 }

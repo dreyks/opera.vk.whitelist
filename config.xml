@@ -10,6 +10,6 @@
 	<icon src="img/icon.16x16.png" />
 	<icon src="img/icon.png" />
 	
-	<preference name="whiteDomains" value="habrahabr.ru"/>
+	<preference name="whiteDomains" value="habrahabr.ru,opera.com"/>
 
 </widget>
