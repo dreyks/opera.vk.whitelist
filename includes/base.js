@@ -18,7 +18,7 @@ for (var i in url)
 if (redirUrl)
 {
 	opera.extension.onmessage = function(event){
-		var domains = event.data;
+		var domains = event.data.split(',').map(function(val){return val.replace(/^\s*|\s*$/g, '')}).filter(function(val){return val != ''});;
 		opera.postError("recieved " + domains);
 		for (var i in domains)
 		{
